@@ -124,9 +124,14 @@ def tabuada(num):
     else:
         print('Número inválido. Digite um número de 1 a 10')
 
-
-def teste_exibir_tabuada():
-    assert tabuada(3) != 3
+@pytest.mark.parametrize('num, resultado',[
+    (5, 9),
+    (3, 3),
+    (10, 2),
+])
+def teste_exibir_tabuada(num, resposta):
+    try:
+        assert tabuada(3) == resposta
 
 if __name__ == '__main__':
     print_hi('PyCharm')
